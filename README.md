@@ -1,2 +1,2 @@
 # GreenMind
-Carnet intelligent de bien-être personnel
+Carnet de gestion de projet ,de tache et d'objectifs
