@@ -21,6 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['inscrire'])) {
     ///echo "Nouvel étudiant ajouté avec succès !";
   } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
+    echo "<script>
+    alert('email incoreect');
+  </script>";
   }
 }
 
