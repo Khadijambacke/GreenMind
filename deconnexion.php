@@ -3,11 +3,4 @@
   require_once 'configuration/config.php';
 
 
-
-
-
-
-
-
-
 ?>
