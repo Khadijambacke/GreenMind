@@ -1,11 +1,25 @@
 <?php
 ///connexion avec la base etablie 
-require_once 'configuration/config.php';
+  require_once 'configuration/config.php';
+  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+
+    $sql = "INSERT INTO utilisateurs (nom, email) VALUES (:nom, :email)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':nom' => $nom,
+        ':email' => $email
+    ]);
+
+    echo "Données insérées avec succès ✅";
+}
+
+
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +34,7 @@ require_once 'configuration/config.php';
       <div class="row g-0">
         <!-- Texte motivation -->
         <div class="col-md-6 p-4" style="background-color: #FCBBF1;">
-          <h2>Bienvenue sur GreenMinds!</h2>
+          <h2>Bienvenue sur GreenMinds</h2>
           <p>Boostez votre productivité!</p>
           <p>Notez vos projets, organisez vos tâches et restez motivé chaque jour.</p>
           <p>Suivez vos projets, collaborez avec votre équipe et ne ratez aucune tâche importante.</p>
@@ -33,7 +47,7 @@ require_once 'configuration/config.php';
         <!-- Formulaire -->
         <div class="col-md-6 p-4">
           <h3>Inscription</h3>
-          <form>
+          <form action="inscription.php"  method="POST">
             <div class="mb-3">
               <label>Prenom</label>
               <input type="Prenom" class="form-control" required>
@@ -50,14 +64,15 @@ require_once 'configuration/config.php';
               <label>Mot de passe</label>
               <input type="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100" style="background-color: #88268C;" >S'inscrire</button>
+            <button name="submit" id="submit" type="submit" class="btn btn-primary w-100" style="background-color: #88268C;" >S'inscrire</button>
           </form>
         </div>
       </div>
     </div>
   </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="ressources/scripts.js"></script>
+  |<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
 </html>
