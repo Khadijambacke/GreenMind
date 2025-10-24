@@ -91,20 +91,20 @@ $heure = date('H:i:s'); ///je vais regler ca plutard avec du javascript pour avo
         <div id="monModal" class="modal fade" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" style=" display:flex;justify-content:center;">ajouter votre projet</h5>
+              <div class="modal-header " style="text-align:center; ">
+                <h5 class="modal-title" >ajouter votre projet</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
               </div>
               <div class="modal-body">
-                <div class="mb-3">
+                <div class="mb-2">
                   <label>Titre</label>
                   <input type="text" name="titrep" class="form-control" placeholder="monprojet" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                   <label>Description</label>
                   <input type="text" name="descriptiionp" class="form-control" placeholder="c'est un projet de.." required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                   <label>motivation</label>
 
                   <select name="motivationp" id="motivationp" class="form-control">
