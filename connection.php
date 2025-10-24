@@ -1,4 +1,6 @@
 <?php
+ session_start(); 
+ 
 ///connexion avec la base etablie 
 require_once 'configuration/config.php';
 if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -9,7 +11,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $stmt->execute([$email]);
     $utilisateur = $stmt->fetch();
     if($utilisateur&&password_verify($password,$utilisateur['motdepass'])){
-      header('location:dashboard.php');
+      $_SESSION['idu'] = $utilisateur['idu'];
+      $_SESSION['nomu'] = $utilisateur['nomu'];
+        $_SESSION['prenomu'] = $utilisateur['prenomu']; 
+         $_SESSION['mailu'] = $utilisateur['mailu']; 
+          setcookie("utilisateur", $utilisateur['prenomu'], time() + 500000, "/"); 
+          header('location:dashboard.php');
+
     }
   }
 }

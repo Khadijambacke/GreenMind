@@ -12,5 +12,21 @@ document.addEventListener("DOMContentLoaded", function() {
     };
     });
 */
+function afficherHeure() {
+  const maintenant = new Date();
+  const options = {
+    timeZone: 'Africa/Dakar',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  };
+  const heure = maintenant.toLocaleTimeString('fr-FR', options);
+  document.getElementById('heure').textContent = heure;
+}
+
+// Actualiser chaque seconde
+setInterval(afficherHeure, 1000);
+afficherHeure();
+
 
     

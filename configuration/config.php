@@ -11,4 +11,10 @@ try {
 } catch (PDOException $e) { 
 die("Erreur de connexion : " . $e->getMessage()); 
 } 
+
+/// code couleur
+
+    ///60%:#F4F1F8;;  30:C69EE6;    10%: #6610f2;;
+
+///
 ?>
